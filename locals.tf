@@ -19,7 +19,7 @@ locals {
   az1            = data.aws_availability_zones.available.names[0]
   az2            = data.aws_availability_zones.available.names[1]
   ami            = data.aws_ami.amazon_linux_2.id
-  instance_name  = "${local.name}-saas"
+  instance_name  = "${local.name}-instance"
   vpc_name       = "${local.name}-vpc"
   common_tags = {
         Environment = var.environment
