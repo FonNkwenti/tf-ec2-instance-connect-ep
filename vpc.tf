@@ -29,10 +29,8 @@ module "service_provider_vpc" {
 
 
 resource "aws_ec2_instance_connect_endpoint" "this" {
-  subnet_id  = element(module.service_provider_vpc.private_subnets, 0)
-  security_group_ids = [aws_security_group.instance_connect_ep_sg.id]
-  
-  depends_on = [aws_instance.private_instance]
+  subnet_id  = element(module.service_provider_vpc.private_subnets, 0)  
+  depends_on = [module.ec2_instance]
 
   tags = local.common_tags
 }
